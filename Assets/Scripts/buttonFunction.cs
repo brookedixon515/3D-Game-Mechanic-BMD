@@ -7,10 +7,22 @@ public class buttonFunction : MonoBehaviour
 {
 
 
+   
     public GameObject door;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        GameObject.Destroy(door);
+         door.SetActive(false);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        door.SetActive(true);
+    }
+
+    static public void doorStop(GameObject door)
+    {
+        door.SetActive(true);
+        Debug.Log("set active done");
     }
 }
