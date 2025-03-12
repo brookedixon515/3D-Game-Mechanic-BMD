@@ -225,6 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d071fbc7fb02b4bb37db3a15778ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regularMaterial: {fileID: 2100000, guid: b7777b2fc0965524f80466af073e2f9c, type: 2}
+  glowingMaterial: {fileID: 2100000, guid: a220669bf0639a547bb78f199c4f2666, type: 2}
+  indicator: {fileID: 0}
   door: {fileID: 0}
 --- !u!65 &5081091333787907456
 BoxCollider:

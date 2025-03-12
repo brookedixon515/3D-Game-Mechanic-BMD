@@ -250,3 +250,6 @@ MonoBehaviour:
   doorOpen: 1
   canPickUp: canPickUp
   flash: {fileID: 8888268631601709288}
+  regularMaterial: {fileID: 2100000, guid: d3f7b456f9bad9d499d6b1c15699e56b, type: 2}
+  glowingMaterial: {fileID: 2100000, guid: 5789ca34bfc0e5046a3080eefaae771d, type: 2}
+  indicator: {fileID: 0}

@@ -9,6 +9,15 @@ public class BlueButtonFunction : MonoBehaviour
     [SerializeField] string canPickUp = "canPickUp";
     public GameObject flash; 
 
+    public Material regularMaterial;
+    public Material glowingMaterial;
+    public GameObject indicator;
+
+    public GameObject indicator2;
+    public GameObject indicator3;
+   
+   
+
 	
     		
     private void OnTriggerStay(Collider other)
@@ -18,6 +27,9 @@ public class BlueButtonFunction : MonoBehaviour
          door.SetActive(false);
          doorOpen = true; 
          Debug.Log("Door opened");
+        indicator.GetComponent<Renderer>().material = glowingMaterial;
+        indicator2.GetComponent<Renderer>().material = glowingMaterial;
+        indicator3.GetComponent<Renderer>().material = glowingMaterial;
         }
     }
 
@@ -28,6 +40,9 @@ public class BlueButtonFunction : MonoBehaviour
         doorOpen = false;
         StartCoroutine (DoorWait ());
         Debug.Log("Cube removed");
+        indicator.GetComponent<Renderer>().material = regularMaterial;
+        indicator2.GetComponent<Renderer>().material = regularMaterial;
+        indicator3.GetComponent<Renderer>().material = regularMaterial;
         }
     }
     
