@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;
-    public float jumpPower = 7f;
+    static public float jumpPower = 7f;
     public float gravity = 10f;
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
 
-    private Vector3 moveDirection = Vector3.zero;
+    static public Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
-    private CharacterController characterController;
+    public static CharacterController characterController;
 
-    private bool canMove = true;
+    public static bool canMove = true;
     public static bool isPaused;
 
 

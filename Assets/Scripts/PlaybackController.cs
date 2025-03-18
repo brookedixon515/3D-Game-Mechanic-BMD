@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class ControlPlayback : MonoBehaviour
 {
-
  public static bool isRewinding = false;
-
 
   public void Update()
     {
@@ -27,12 +25,8 @@ public class ControlPlayback : MonoBehaviour
         isRewinding = true;
     }
 
-
     public void StopRewind()
     {
         isRewinding = false;
     }
-
-
-
 }
