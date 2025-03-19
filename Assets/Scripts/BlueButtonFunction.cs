@@ -54,13 +54,28 @@ public class BlueButtonFunction : MonoBehaviour
                 door.SetActive(false);
     			yield return new WaitForSeconds(1.0f);
                 flash.SetActive(false);
+                indicator.GetComponent<Renderer>().material = regularMaterial;
+                indicator2.GetComponent<Renderer>().material = regularMaterial;
+                indicator3.GetComponent<Renderer>().material = regularMaterial;
                 yield return new WaitForSeconds(1.0f);
                 flash.SetActive(true);
+                indicator.GetComponent<Renderer>().material = glowingMaterial;
+                indicator2.GetComponent<Renderer>().material = glowingMaterial;
+                indicator3.GetComponent<Renderer>().material = glowingMaterial;
                 yield return new WaitForSeconds(1.0f);
                 flash.SetActive(false);
+                indicator.GetComponent<Renderer>().material = regularMaterial;
+                indicator2.GetComponent<Renderer>().material = regularMaterial;
+                indicator3.GetComponent<Renderer>().material = regularMaterial;
                 yield return new WaitForSeconds(1.0f);
                 flash.SetActive(true);
+                indicator.GetComponent<Renderer>().material = regularMaterial;
+                indicator2.GetComponent<Renderer>().material = regularMaterial;
+                indicator3.GetComponent<Renderer>().material = regularMaterial;
                 yield return new WaitForSeconds(1.0f);
+                indicator.GetComponent<Renderer>().material = regularMaterial;
+                indicator2.GetComponent<Renderer>().material = regularMaterial;
+                indicator3.GetComponent<Renderer>().material = regularMaterial;
     			door.SetActive(true);
     		}
 

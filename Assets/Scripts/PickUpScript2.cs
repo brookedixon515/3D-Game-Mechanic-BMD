@@ -4,37 +4,68 @@ using UnityEngine;
 
 public class PickUpScript2 : MonoBehaviour
 {
-//    public Transform holdPos;
-//    public Transform camRot;
-   bool holding = false;
-   public GameObject player;
-   public Transform holdposition;
+    bool holding = false;
+    private GameObject player;
+    private Transform holdposition;
+    private bool _inTrigger;
+    private GameObject Player;
+    Rigidbody rb;
 
-   void OnTriggerStay(Collider other)
-   {
-    if(Input.GetKeyDown(KeyCode.E))
+    private void Awake()
     {
-        if(other.gameObject.tag == "canPickUp")
-        {
-            if (holding == false)
-            {
-                holding = true;
-                other.gameObject.transform.position = new Vector3(0, 1, 0);
-                other.gameObject.transform.position = holdposition.position;
-                other.gameObject.transform.parent = player.transform;
-                Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
-            }
-            else if (holding == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Space) && PlayerMovement.canMove && PlayerMovement.characterController.isGrounded)
-                {
-                    PlayerMovement.moveDirection.y = PlayerMovement.jumpPower;
-                }
-                holding = false;
-                other.gameObject.transform.parent = null;
-                Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-            }
-        } 
+        rb = GetComponent<Rigidbody>();
     }
-   }
+
+    private void Start()
+    {
+        player =  GameObject.Find("Playerbody");
+        Player =  GameObject.Find("Player");
+        holdposition = Player.transform.Find("Playerbody/Main Camera/holdPosition");
+    }
+private void Update()
+{
+    if (holdposition == null)
+    {
+        Debug.Log("nuh uh");
+    }
+    if(_inTrigger)
+    {   
+
+      if(Input.GetKeyDown(KeyCode.E) && holding == false)
+      {
+            holding = true;
+            gameObject.transform.parent = player.transform;
+            rb.useGravity = false;
+      }
+      else if(Input.GetKeyDown(KeyCode.E) && holding == true)
+      {
+            holding = false;
+            gameObject.transform.parent = null;
+            rb.useGravity = true;
+      }
+    }
+    
+    if(holding)
+    {
+        gameObject.transform.position = holdposition.position;
+    }
+}
+
+private void OnTriggerEnter(Collider other)
+{
+    if(other.gameObject.tag == "Player")
+    {
+    _inTrigger = true;   
+    }
+}
+
+private void OnTriggerExit(Collider other)
+{
+    if(other.gameObject.tag == "Player")
+    {
+    _inTrigger = false;
+    gameObject.transform.parent = null;
+     gameObject.GetComponent<Rigidbody> ().useGravity = true;
+    }
+}
 }

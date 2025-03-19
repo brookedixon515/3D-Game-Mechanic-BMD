@@ -8,7 +8,7 @@ public class cubeDestroy : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag.Equals(cubeTag))
+        if(other.gameObject.tag.Equals(cubeTag) && other.gameObject.tag != "MainCamera")
         {
             Invoke("destroyOther", 8);
         }

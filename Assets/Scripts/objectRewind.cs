@@ -8,7 +8,7 @@ public class objectRewind : MonoBehaviour
 
 
 
-public float maxRewindDuration = 10f;
+public float maxRewindDuration = 20f;
     public float rewindSpeed = 2f;
   
     public List<TimeSnapshot> timeSnapshots = new List<TimeSnapshot>();
