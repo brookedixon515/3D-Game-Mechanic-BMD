@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class objectRewind : MonoBehaviour
 {
-
-
-
-public float maxRewindDuration = 20f;
+    public float maxRewindDuration = 30f;
     public float rewindSpeed = 2f;
   
     public List<TimeSnapshot> timeSnapshots = new List<TimeSnapshot>();
@@ -67,8 +64,6 @@ public float maxRewindDuration = 20f;
             gameObject.GetComponent<Rigidbody> ().useGravity = false;
             transform.position = snapshot.position;
             transform.rotation = snapshot.rotation;
-
-
             timeSnapshots.RemoveAt(0);
         }
         else

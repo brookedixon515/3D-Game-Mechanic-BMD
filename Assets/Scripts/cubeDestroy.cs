@@ -5,19 +5,40 @@ using UnityEngine;
 public class cubeDestroy : MonoBehaviour
 {
     [SerializeField] string cubeTag = "Destroying";
+    bool playeron;
 
-  private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag.Equals(cubeTag) && other.gameObject.tag != "MainCamera")
+        if(other.gameObject.tag == "Player")
         {
-            Invoke("destroyOther", 8);
+            playeron = true;
         }
-        
+
+          if(other.gameObject.tag.Equals(cubeTag) && playeron == false && ControlPlayback.isRewinding == false)
+        {
+            Invoke("destroyOther", 10);
+        }
     }
 
-    void destroyOther()
+    private void OnTriggerExit(Collider other)
     {
-        Destroy(gameObject);
+        if(other.gameObject.tag == "Player")
+        {
+            playeron = false;
+        }
+    }
+
+
+    void destroyOther()
+    {      if(playeron == false && ControlPlayback.isRewinding == false)
+        {
+        if ((transform.childCount > 0))
+        {
+        Transform childTransform = transform.Find("Playerbody"); 
+        childTransform.parent = null; 
+        }
+         Destroy(gameObject);
+        }
     }
         
     

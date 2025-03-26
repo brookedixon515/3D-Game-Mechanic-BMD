@@ -8,7 +8,7 @@ public class PickUpScript2 : MonoBehaviour
     private GameObject player;
     private Transform holdposition;
     private bool _inTrigger;
-    private GameObject Player;
+    private GameObject Playerbody;
     Rigidbody rb;
 
     private void Awake()
@@ -19,8 +19,7 @@ public class PickUpScript2 : MonoBehaviour
     private void Start()
     {
         player =  GameObject.Find("Playerbody");
-        Player =  GameObject.Find("Player");
-        holdposition = Player.transform.Find("Playerbody/Main Camera/holdPosition");
+        holdposition = player.transform.Find("Main Camera/holdPosition");
     }
 private void Update()
 {
@@ -33,15 +32,16 @@ private void Update()
 
       if(Input.GetKeyDown(KeyCode.E) && holding == false)
       {
-            holding = true;
             gameObject.transform.parent = player.transform;
             rb.useGravity = false;
+
+            holding = true;
       }
       else if(Input.GetKeyDown(KeyCode.E) && holding == true)
       {
-            holding = false;
             gameObject.transform.parent = null;
             rb.useGravity = true;
+            holding = false;
       }
     }
     
@@ -55,7 +55,8 @@ private void OnTriggerEnter(Collider other)
 {
     if(other.gameObject.tag == "Player")
     {
-    _inTrigger = true;   
+    _inTrigger = true;  
+    Debug.Log("in trigger");
     }
 }
 
@@ -64,6 +65,7 @@ private void OnTriggerExit(Collider other)
     if(other.gameObject.tag == "Player")
     {
     _inTrigger = false;
+    Debug.Log("out trigger");
     gameObject.transform.parent = null;
      gameObject.GetComponent<Rigidbody> ().useGravity = true;
     }
