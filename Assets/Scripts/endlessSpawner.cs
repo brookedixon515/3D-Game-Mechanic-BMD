@@ -7,12 +7,15 @@ public class EndlessSpawner : MonoBehaviour
     public GameObject objectToSpawn;
     public Transform spawnpoint;
 
-    float spawnInterval = 10f;
+
+    float spawnInterval = 15f;
+
 
    private void Start()
     {
         StartCoroutine(SpawnObjects());
     }
+
 
     IEnumerator SpawnObjects()
     {
@@ -27,7 +30,9 @@ public class EndlessSpawner : MonoBehaviour
                 Debug.LogWarning("Object to spawn or spawn point is not set.");
             }
 
+
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 }
+

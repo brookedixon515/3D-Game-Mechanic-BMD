@@ -33,14 +33,14 @@ private void Update()
       if(Input.GetKeyDown(KeyCode.E) && holding == false)
       {
             gameObject.transform.parent = player.transform;
-            rb.useGravity = false;
+            // rb.useGravity = false;
 
             holding = true;
       }
       else if(Input.GetKeyDown(KeyCode.E) && holding == true)
       {
             gameObject.transform.parent = null;
-            rb.useGravity = true;
+            // rb.useGravity = true;
             holding = false;
       }
     }
@@ -53,7 +53,7 @@ private void Update()
 
 private void OnTriggerEnter(Collider other)
 {
-    if(other.gameObject.tag == "Player")
+    if(other.gameObject.tag == "PickUp Collider")
     {
     _inTrigger = true;  
     Debug.Log("in trigger");
@@ -62,7 +62,7 @@ private void OnTriggerEnter(Collider other)
 
 private void OnTriggerExit(Collider other)
 {
-    if(other.gameObject.tag == "Player")
+    if(other.gameObject.tag == "PickUp Collider")
     {
     _inTrigger = false;
     Debug.Log("out trigger");

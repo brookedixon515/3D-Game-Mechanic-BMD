@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlPlayback : MonoBehaviour
 {
@@ -13,11 +14,13 @@ public class ControlPlayback : MonoBehaviour
             StartRewind();
         }
 
-
         if (Input.GetKeyUp(KeyCode.R))
         {
             StopRewind();
         }
+
+        
+    
     }
 
     public void StartRewind()

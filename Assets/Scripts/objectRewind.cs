@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class objectRewind : MonoBehaviour
 {
     public float maxRewindDuration = 30f;
     public float rewindSpeed = 2f;
+
+   Slider timeslider;
   
     public List<TimeSnapshot> timeSnapshots = new List<TimeSnapshot>();
 
     void Start()
     {
         gameObject.GetComponent<Rigidbody> ().useGravity = true;
+        timeslider =  GameObject.Find("Other stuff/Canvas/Slider").GetComponent<Slider>();
     }
 
     public struct TimeSnapshot
@@ -41,6 +45,8 @@ public class objectRewind : MonoBehaviour
         {
             RewindTime();
         }
+
+        timeslider.value = timeSnapshots.Count;
     }
 
 
