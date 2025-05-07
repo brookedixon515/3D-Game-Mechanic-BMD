@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class objectRewind : MonoBehaviour
 {
-    public float maxRewindDuration = 30f;
+    public float maxRewindDuration = 10f;
     public float rewindSpeed = 2f;
 
+<<<<<<< Updated upstream
    Slider timeslider;
   
+=======
+>>>>>>> Stashed changes
     public List<TimeSnapshot> timeSnapshots = new List<TimeSnapshot>();
 
     void Start()
